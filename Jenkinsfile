@@ -12,7 +12,7 @@ pipeline{
                sh 'mvn package'
             }
         }
-        stage('Deploy'){
+        stage('Deploy on tomcat'){
             steps{
                sh set +x
                sh echo "Deploying to Tomcat at http://tomcat:8080/myapp"
