@@ -16,7 +16,7 @@ pipeline{
             steps{
                sh set +x
                sh echo "Deploying to Tomcat at http://tomcat:8080/myapp"
-               sh  curl -s --upload-file target/jb-hello-world-maven-0.2.0.jar "http://admin:12345@http://54.221.33.116:8090/manager/text/deploy?path=/myapp&update=true&tag=${BUILD_TAG}"
+               sh  curl -s --upload-file  /var/lib/jenkins/workspace/java-pipeline/target/jb-hello-world-maven-0.2.0.jar "http://admin:12345@http://54.221.33.116:8090/manager/text/deploy?path=/myapp&update=true&tag=${BUILD_TAG}"
             }
         }
     }
