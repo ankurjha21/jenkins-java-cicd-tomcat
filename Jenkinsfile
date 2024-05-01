@@ -17,9 +17,11 @@ pipeline{
         }
         stage('Deploy on tomcat'){
             steps{
-               sh set +x
-               sh echo "Deploying to Tomcat at http://tomcat:8080/myapp"
-               sh curl -v -T ${env.WAR_FILE} "${env.TOMCAT_URL}/deploy?path=/context_path&update=true"
+                scripts {
+                    set +x
+                    echo "Deploying to Tomcat at http://tomcat:8080/myapp"
+                    curl -v -T ${env.WAR_FILE} "${env.TOMCAT_URL}/deploy?path=/context_path&update=true"
+                }
             }
         }
     }
