@@ -1,6 +1,9 @@
 pipeline{
     agent any
-    
+    environment {
+        TOMCAT_URL = 'http://admin:12345@http://44.220.134.43:8090/manager/text/'
+        WAR_FILE = '/var/lib/jenkins/workspace/java-pipeline/target/jb-hello-world-maven-0.2.0.war'
+    }
     stages{
         stage('checkout'){
             steps{
@@ -16,7 +19,7 @@ pipeline{
             steps{
                sh set +x
                sh echo "Deploying to Tomcat at http://tomcat:8080/myapp"
-               sh  curl -s --upload-file  /var/lib/jenkins/workspace/java-pipeline/target/jb-hello-world-maven-0.2.0.jar "http://admin:12345@http://44.220.134.43:8090/manager/text/deploy?path=/myapp&update=true&tag=${BUILD_TAG}"
+               sh curl -v -T ${env.WAR_FILE} ${env.TOMCAT_URL}/deploy?path=/context_path&update=true
             }
         }
     }
