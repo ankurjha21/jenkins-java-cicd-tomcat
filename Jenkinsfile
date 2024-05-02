@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment {
         TOMCAT_URL = 'http://admin:12345@http://44.220.134.43:8090/manager/text/'
-        WAR_FILE = '/var/lib/jenkins/workspace/java-pipeline/target/jb-hello-world-maven-0.2.0.war'
+        WAR_FILE = '/var/lib/jenkins/workspace/java-pipeline/target/jb-hello-world-maven-0.2.0.jar'
     }
     stages{
         stage('checkout'){
