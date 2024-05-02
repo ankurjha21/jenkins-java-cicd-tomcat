@@ -17,7 +17,7 @@ pipeline{
         }
         stage('Deploy on tomcat server'){
             steps{
-                   sh "curl -v -T ${env.WAR_FILE} ${env.TOMCAT_URL}/deploy?path=/context_path&update=true"
+                sh "curl -v -T ${env.WAR_FILE} ${env.TOMCAT_URL}/deploy?path=/context_path&update=true"
                 }
         }
     }
