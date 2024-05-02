@@ -15,7 +15,7 @@ pipeline{
                sh 'mvn package'
             }
         }
-        stage('Deploy on tomcat'){
+        stage('Deploy on tomcat server'){
             steps{
                 scripts {
                     set +x
