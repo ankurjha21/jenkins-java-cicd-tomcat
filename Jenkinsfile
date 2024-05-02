@@ -20,7 +20,7 @@ pipeline{
                 scripts {
                     set +x
                     echo "Deploying to Tomcat at http://tomcat:8080/myapp"
-                    curl -v -T ${env.WAR_FILE} "${env.TOMCAT_URL}/deploy?path=/context_path&update=true"
+                    "curl -v -T ${env.WAR_FILE} ${env.TOMCAT_URL}/deploy?path=/context_path&update=true"
                 }
             }
         }
